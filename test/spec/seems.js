@@ -32,4 +32,13 @@ describe('cli-regexp:', function() {
     expect(re).to.be.instanceof(RegExp);
     done();
   });
+
+  it('should seem to be a regexp multiple quadruple backslash', function(done) {
+    var ptn = '/sa-test\\\\/init\\\\/(registry|uuid)\\\\.ini/';
+    var res = regexp.seems(ptn);
+    expect(res).to.eql(true);
+    var re = regexp.parse(ptn);
+    expect(re).to.be.instanceof(RegExp);
+    done();
+  });
 })
